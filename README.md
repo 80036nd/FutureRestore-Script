@@ -20,6 +20,8 @@ iPad Mini 3
 
 iPad 7th Gen (2019)
 
+iPhone 8 Support Comming Soon
+
 More may come :)
 
 # How to use:
