@@ -1,6 +1,6 @@
 # FutureRestore Script
 
-# Supported devices
+# Supported Devices
 
 iPhone 5s
 
