@@ -38,7 +38,7 @@ Step 4) Run ./restore.sh and follow the directions
 
 # Note:
 
-Make sure the SEP is compatable with the version you are trying to restore/
+Make sure the SEP is compatable with the version you are trying to restore.
 
 This will wipe all of your data.
 
