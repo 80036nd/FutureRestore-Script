@@ -30,7 +30,7 @@ More may come :)
 
 Step 1) Download your noapnonce shsh2 blob from tsssaver and put it in the folder you downloaded and name it blob.shsh2
 
-Step 2) Download your iPSW and put it in the folder. Then open the install.sh script with TextEddit and where it says (Insert IPSW Name) remove that and enter your iPSW name there
+Step 2) Download your iPSW and put it in the folder. Renanme the iPSW to restore.ipsw
 
 Step 3) cd into the folder and then run chmod +x restore.sh
 
