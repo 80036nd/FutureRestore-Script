@@ -36,6 +36,9 @@ Step 3) cd into the folder and then run chmod +x restore.sh
 
 Step 4) Run ./restore.sh and follow the directions
 
+# Note:
+
+Make sure the SEP is compatable with the version you are trying to restore
 
 # Credits:
 
