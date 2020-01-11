@@ -1,10 +1,10 @@
-#!/bin/bash
+##!/bin/bash
 rm -rf ipwndfu_public
 rm -rf ipwndfu
 
 clear
 echo "*** FutureRestore Booter ***"
-echo "Ready To Restore (y,n)"
+echo "Are your Blobs from tsssaver (y,n)"
 
 read input
 
@@ -18,7 +18,7 @@ then
 elif [ $input = n ];
 then
 
-    echo "Please drag and drop the SHSH file that you want to downgrade with into this terminal window then press enter"
+    echo "Drag and drop your blob into terminal"
 
     read shsh
 
