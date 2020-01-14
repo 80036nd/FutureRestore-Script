@@ -46,7 +46,7 @@ This will wipe all of your data.
 
 For a7 you can downgrade iOS 11.3-12.4.4
 
-For all others you can go only to 13.3 asfaik
+For all other devices you can go only to 13.3 asfaik
 
 # Credits:
 
