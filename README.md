@@ -42,6 +42,12 @@ Make sure the SEP is compatable with the version you are trying to restore.
 
 This will wipe all of your data.
 
+# Sep Compatibility
+
+For a7 you can downgrade iOS 11.3-12.4.4
+
+For all others you can go only to 13.3 asfaik
+
 # Credits:
 
 MatthewPierson for the Checkm8-nonce-setter
