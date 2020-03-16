@@ -22,8 +22,6 @@ iPad 7th Gen (2019)
 
 iPod Touch 7th Gen (2019)
 
-iPhone 8 Support Comming Soon
-
 More may come :)
 
 # How to use:
