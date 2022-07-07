@@ -28,7 +28,7 @@ More may come :)
 
 Step 0.1) Download your SHSH blob from a SHSH Blobs saver
 
-Step 1) Download your iPSW and put it in the folder. Renanme the iPSW to restore.ipsw
+Step 1) Download your iPSW and put it in the folder. Rename the iPSW to restore.ipsw
 
 Step 2) Open terminal cd into the folder and then run chmod +x restore.sh
 
