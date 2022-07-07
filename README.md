@@ -26,13 +26,13 @@ More may come :)
 
 # How to use:
 
-Step 1) Download your noapnonce shsh2 blob from tsssaver or any other one with a generator and put it in the folder you downloaded and name it blob.shsh2
+Step 0.1) Download your SHSH blob from a SHSH Blobs saver
 
-Step 2) Download your iPSW and put it in the folder. Renanme the iPSW to restore.ipsw
+Step 1) Download your iPSW and put it in the folder. Renanme the iPSW to restore.ipsw
 
-Step 3) cd into the folder and then run chmod +x restore.sh
+Step 2) Open terminal cd into the folder and then run chmod +x restore.sh
 
-Step 4) Run ./restore.sh and follow the directions
+Step 3) Run ./restore.sh and follow the directions
 
 # Note:
 
