@@ -206,6 +206,9 @@ sleep 7
 echo "New nonce"
 ./irecovery -q | grep NONC
 
+cd ..
+cp -vf $shsh ./blob.shsh2
+
 echo "All done!"
 echo ""
 echo "futurerestore can now restore to the firmware that the SHSH is vaild for!"
