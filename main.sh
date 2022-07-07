@@ -4,80 +4,50 @@ rm -rf ipwndfu
 
 clear
 echo "*** FutureRestore Booter ***"
-echo "Are your Blobs from tsssaver (y,n)"
+echo "Drag and drop your blob into terminal"
+read shsh
+echo "Is $shsh the correct location and file name of SHSH? (y/n)"
+read pass
 
-read input
-
-if [ $input = y ];
+if [ $pass == yes ] || [ $pass == Yes ] || [ $pass == y ] || [ $pass == Y ];
 then
-    echo "Please enter 0x1111111111111111"
-
-    read generator
-
-    echo "Thank you for entering"
-elif [ $input = n ];
+    echo "Continuing with given SHSH"
+elif [ $pass == no ] || [ $pass == No ] || [ $pass == n ] || [ $pass == n ];
 then
-
-    echo "Drag and drop your blob into terminal"
-
-    read shsh
-
-    echo "Is $shsh the correct location and file name of your SHSH? (y/n)"
-
-    read pass
-
-        if [ $pass == yes ] || [ $pass == Yes ] || [ $pass == y ] || [ $pass == Y ];
-        then
-            echo "Continuing with given SHSH"
-
-        elif [ $pass == no ] || [ $pass == No ] || [ $pass == n ] || [ $pass == n ];
-        then
-            echo "Please restart script and give the correct location and file name"
-            echo "Exiting..."
-            exit
-
-        else
-            echo "Unrecognised input"
-            echo "Exiting..."
-            exit
-
-        fi
-
-        if [ ${shsh: -6} == ".shsh2" ] || [ ${shsh: -5} == ".shsh" ];
-        then
-            echo "File verified as SHSH2 file, continuing"
-
-        else
-            echo "Please ensure that the file extension is either .shsh or .shsh2 and retry"
-            echo "Exiting..."
-            exit
-        fi
-
-        echo "Getting generator from SHSH"
-
-        getGenerator() {
-        echo $1 | grep "<string>0x" $shsh  | cut -c10-27
-        }
-        generator=$(getGenerator $shsh)
-
-        if [ -z "$generator" ]
-        then
-            echo "[ERROR] SHSH does not contain a generator!"
-            echo "[ERROR] Please use a different SHSH with a generator!"
-            echo "[ERROR] SHSH saved with shsh.host (will show generator) or tsssaver.1conan.com (in noapnonce folder) are acceptable"
-            echo "Exiting..."
-            exit
-        else
-            echo "Your generator is: $generator"
-        fi
-
+    echo "Please restart script and give the correct location and file name"
+    echo "Exiting..."
+    exit
 else
-    echo "Input not recognized, Exiting..."
+    echo "Unrecognised input"
+    echo "Exiting..."
     exit
 fi
+if [ ${shsh: -6} == ".shsh2" ] || [ ${shsh: -5} == ".shsh" ];
+then
+    echo "File verified as SHSH2 file, continuing"
+else
+    echo "Please ensure that the file extension is either .shsh or .shsh2 and retry"
+    echo "Exiting..."
+    exit
+fi
+echo "Getting generator from SHSH ..."
 
-echo "$generator"
+getGenerator() {
+    echo $1 | grep "<string>0x" $shsh  | cut -c10-27
+}
 
+generator=$(getGenerator $shsh)
+
+if [ -z "$generator" ];
+then
+    echo "[ERROR] SHSH does not contain a generator!"
+    echo "[ERROR] Please use a different SHSH with a generator!"
+    echo "[ERROR] SHSH saved with shsh.host (will show generator) or tsssaver.1conan.com (in noapnonce folder) are acceptable"
+    echo "Exiting..."
+    exit
+fi
+        
+echo "" && echo "Device generator is: $generator"
 
 files/igetnonce | grep 'n53ap' &> /dev/null
 if [ $? == 0 ]; then
@@ -157,8 +127,7 @@ if [ $? == 0 ]; then
    echo $device
 fi
 
-if [ -z "$device" ]
-then
+if [ -z "$device" ]; then
     echo "Either unsupported device or no device found."
     echo "Exiting.."
     exit
@@ -166,13 +135,11 @@ else
     echo "Supported device found."
 fi
 
-echo "Please connect device in DFU mode. Press enter when ready to continue"
-
-read randomIrrelevant
+read -p "Please connect device in DFU mode. Press enter when ready to continue"
 
 if [ $device == iPhone10,3 ] || [ $device == iPhone10,6 ]; then
-    git clone https://github.com/akayn/ipwndfu.git
-    cd ipwndfu
+    git clone https://github.com/MatthewPierson/ipwndfuA11.git
+    cd ipwndfuA11
 else
     git clone https://github.com/MatthewPierson/ipwndfu_public.git
     cd ipwndfu_public
@@ -182,8 +149,8 @@ echo "Starting ipwndfu"
 string=$(../files/lsusb | grep -c "checkm8")
 until [ $string = 1 ];
 do
-    echo "Waiting 10 seconds to allow you to enter DFU mode"
-    sleep 0.1
+    echo "Waiting 15 seconds to allow you to enter DFU mode"
+    sleep 15
     echo "Attempting to get into pwndfu mode"
     echo "Please just enter DFU mode again on each reboot"
     echo "The script will run ipwndfu again and again until the device is in PWNDFU mode"
@@ -191,12 +158,13 @@ do
     string=$(../files/lsusb | grep -c "checkm8")
 done
 
-sleep 0.1
+sleep 1
 
-if [ $device == iPhone10,3 ] || [ $device == iPhone10,6 ]; then
+if [ $device == iPhone10,3 ] || [ $device == iPhone10,6 ];
+then
     echo "Device is an iPhone X, using akayn's signature check remover"
     ./ipwndfu --patch
-    sleep 0.1
+    sleep 1
 else
     echo "Device is NOT an iPhone X, using Linus's signature check remover"
     python rmsigchks.py
@@ -238,7 +206,7 @@ sleep 7
 echo "New nonce"
 ./irecovery -q | grep NONC
 
-echo "We are done!"
+echo "All done!"
 echo ""
-echo "You can now futurerestore to the firmware that this SHSH is vaild for"
-echo "Assuming that signed SEP and Baseband are compatible"
+echo "futurerestore can now restore to the firmware that the SHSH is vaild for!"
+echo "Assuming that signed SEP and Baseband are compatible!"
