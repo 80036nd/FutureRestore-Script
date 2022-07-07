@@ -1,6 +1,5 @@
 ##!/bin/bash
-rm -rf ipwndfu_public
-rm -rf ipwndfu
+rm -rf ipwndfu*
 
 clear
 echo "*** FutureRestore Booter ***"
