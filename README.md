@@ -30,7 +30,7 @@ Step 0.1) Download device SHSH blob from a SHSH Blobs saver (Have it ready if al
 
 Step 0.2) Download device IPSW for SHSH blob
 
-Step 0.3) Clone git repository
+Step 0.3) Clone this git repository
 
 Step 1) Open terminal cd into the folder and then run chmod +x restore.sh
 
