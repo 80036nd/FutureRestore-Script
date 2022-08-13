@@ -26,13 +26,11 @@ More may come :)
 
 # How to use:
 
-Step 0.1) Download your SHSH blob from a SHSH Blobs saver (Have it ready if already downloaded)
+Step 0.1) Download device IPSW, download device SHSH blob from a SHSH Blobs saver (Have it ready if already downloaded)
 
-Step 1) Download iPSW and put it in the folder. Rename the iPSW to restore.ipsw
+Step 1) Open terminal cd into the folder and then run chmod +x restore.sh
 
-Step 2) Open terminal cd into the folder and then run chmod +x restore.sh
-
-Step 3) Run ./restore.sh and follow the directions
+Step 2) Run ./restore.sh and follow the directions
 
 # Note:
 
