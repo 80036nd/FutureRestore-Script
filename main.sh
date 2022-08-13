@@ -19,6 +19,7 @@ echo "Getting generator from SHSH"
 _getGenerator() {
   echo $1 | grep "<string>0x" $shsh  | cut -c10-27
 }
+
 generator=$(_getGenerator $shsh)
 
 if [ -z "$generator" ];then
@@ -32,62 +33,21 @@ fi
 echo "Please connect device in DFU mode."
 read -p "Press ENTER when ready to continue <-"
 
-_getDeviceByModel() {
-  ./files/irecovery -q | grep "MODEL" | grep -c $1
+_getDevice() {
+  ./files/irecovery -q | grep "PRODUCT" | cut -f 2 -d ":" | cut -c 2-
 }
 
-if [ `_getDeviceByModel "n53ap"` == 1 ];then
-   device="iPhone6,2"
-fi
-
-if [ `_getDeviceByModel "n51ap"` == 1 ]; then
-   device="iPhone6,1"
-fi
-
-if [ `_getDeviceByModel "j71ap"` == 1 ]; then
-   device="iPad4,1"
-fi
-
-if [ `_getDeviceByModel "j72ap"` == 1 ]; then
-   device="iPad4,2"
-fi
-
-if [ `_getDeviceByModel "j85ap"` == 1 ]; then
-   device="iPad4,4"
-fi
-
-if [ `_getDeviceByModel "j86ap"` == 1 ]; then
-   device="iPad4,5"
-fi
-
-if [ `_getDeviceByModel "d11ap"` == 1 ]; then
-   device="iPhone9,2"
-fi
-
-if [ `_getDeviceByModel "d10ap"` == 1 ]; then
-   device="iPhone9,1"
-fi
-
-if [ `_getDeviceByModel "d101ap"` == 1 ]; then
-   device="iPhone9,3"
-fi
-
-if [ `_getDeviceByModel "d111ap"` == 1 ]; then
-   device="iPhone9,4"
-fi
-
-if [ `_getDeviceByModel "d22ap"` == 1 ]; then
-   device="iPhone10,3"
-fi
-
-if [ `_getDeviceByModel "d221ap"` == 1 ]; then
-   device="iPhone10,6"
-fi
+device=`_getDevice`
 
 if [ -z "$device" ];then
-    echo "[Exiting] Either unsupported device or no device found."
+    echo "[Exiting] No device found."
     exit
 else
+    if [ ! -e ./files/ibss.$device.img4 ];then
+      echo "[Exiting] Unsupported device."
+      exit
+    fi
+
     echo "Supported device found: $device"
 fi
 
