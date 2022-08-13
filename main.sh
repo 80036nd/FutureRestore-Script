@@ -15,13 +15,13 @@ fi
 cp -v $shsh ./blob.shsh2
 
 echo "Getting generator from SHSH"
+
 _getGenerator() {
   echo $1 | grep "<string>0x" $shsh  | cut -c10-27
 }
 generator=$(_getGenerator $shsh)
 
-if [ -z "$generator" ]
-then
+if [ -z "$generator" ];then
     echo "[Exiting] SHSH does not contain a generator!"
     echo "SHSH saved with https://shsh.host (will show generator) or https://tsssaver.1conan.com (in noapnonce folder) are acceptable"
     exit
