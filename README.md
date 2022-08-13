@@ -26,7 +26,11 @@ More may come :)
 
 # How to use:
 
-Step 0.1) Download device IPSW, download device SHSH blob from a SHSH Blobs saver (Have it ready if already downloaded)
+Step 0.1) Download device SHSH blob from a SHSH Blobs saver (Have it ready if already downloaded)
+
+Step 0.2) Download device IPSW for SHSH blob
+
+Step 0.3) Clone git repository
 
 Step 1) Open terminal cd into the folder and then run chmod +x restore.sh
 
@@ -34,7 +38,7 @@ Step 2) Run ./restore.sh and follow the directions
 
 # Note:
 
-Make sure the SEP is compatable with the version you are trying to restore.
+Make sure the SEP is compatible with the version you are trying to restore.
 
 This will wipe all of your data.
 
