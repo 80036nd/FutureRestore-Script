@@ -75,7 +75,7 @@ done
 sleep 1
 echo "Patching signature checks"
 
-if [ $device == "iPhone10,3" ] || [ $device == "iPhone10,6" ]
+if [ "$device" == "iPhone10,3" ] || [ "$device" == "iPhone10,6" ]
 then
     ./ipwndfu --patch
     sleep 0.1
